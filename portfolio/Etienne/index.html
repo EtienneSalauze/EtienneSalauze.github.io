@@ -87,8 +87,8 @@
                 <div class="row about-info wide" data-animate-block>
 
                     <div class="column lg-6 md-12 about-info__pic-block">
-                        <img src="images/about-photo.jpg" 
-                             srcset="images/about-photo.jpg 1x, images/about-photo@2x.jpg 2x" alt="" class="about-info__pic" data-animate-el>
+                        <img src="images/portfolio/photo.png" 
+                             srcset="images/portfolio/photo.png 1x, images/portfolio/photo.png 2x" alt="" class="about-info__pic" data-animate-el>
                     </div>
 
                     <div class="column lg-6 md-12">
@@ -471,7 +471,7 @@
                     <div class="column lg-3 md-5 tab-6 stack-on-550 contact-block">
                         <h3 class="text-pretitle">Contactez moi via :</h3>
                         <p class="contact-links">
-                            <a href="mailto:sayhello@luther.com" class="mailtoui">salauzeetienne@gmail.com</a> <br>
+                            <a href="salauzeetienne@gmail.com" class="mailtoui">salauzeetienne@gmail.com</a> <br>
                             <a>07 85 98 56 13</a>
                         </p>
                     </div>
@@ -535,7 +535,19 @@
             });
         });
     });
+
+    document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll("[data-animate-el]").forEach(el => {
+        el.style.opacity = "1";
+        el.style.visibility = "visible";
+        el.style.transform = "none";
+    });
+});
+
+
     </script>
-    
+
+
+
 </body>
 </html>
