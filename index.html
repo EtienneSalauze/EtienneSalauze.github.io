@@ -503,30 +503,38 @@
         </script>
 
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        // Empêcher la page de remonter lors de l'ouverture de la modale
-        document.querySelectorAll('.folio-list__item-link').forEach(link => {
-            link.addEventListener("click", function (e) {
-                if (this.getAttribute("href").startsWith("#modal")) {
-                    e.preventDefault(); // Empêche le comportement par défaut du lien
-                }
-            });
-        });
-    
-        // Défilement fluide pour les compétences
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener("click", function (e) {
-                const target = document.querySelector(this.getAttribute("href"));
-                if (target && !this.getAttribute("href").startsWith("#modal")) {
-                    e.preventDefault();
-                    window.scrollTo({
-                        top: target.offsetTop - 100, // Ajuste selon la hauteur du header
-                        behavior: "smooth"
-                    });
-                }
-            });
+document.addEventListener("DOMContentLoaded", function () {
+    // Défilement fluide pour les liens ancrés vers les sections
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            // Empêche le comportement par défaut du lien
+            e.preventDefault();
+            
+            // Récupère la section cible à partir de l'attribut href
+            const targetId = this.getAttribute("href").substring(1);  // Récupérer l'ID sans le "#"
+            const target = document.getElementById(targetId);
+            
+            // Si la section cible existe, on effectue le défilement fluide
+            if (target) {
+                target.scrollIntoView({
+                    behavior: "smooth", // Le défilement est fluide
+                    block: "start"      // Aligne le début de l'élément cible en haut de la fenêtre
+                });
+
+                // Appliquer la classe "highlight" pour changer la couleur du texte
+                target.classList.add("highlight");
+
+                // Retirer la classe après 2 secondes pour enlever la couleur rouge
+                setTimeout(function() {
+                    target.classList.remove("highlight");
+                }, 10000); // 2000ms = 2 secondes
+            }
         });
     });
+});
+
+
+
 
     document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll("[data-animate-el]").forEach(el => {

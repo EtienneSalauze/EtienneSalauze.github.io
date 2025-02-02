@@ -4243,4 +4243,9 @@ img.u-pull-left {
     scroll-margin-top: 100px; 
 }
 
+/* Classe pour changer la couleur du texte */
+.highlight {
+    color: rgb(196, 63, 63); /* Couleur du texte */
+    transition: color 1ms ease; /* Animation douce pour la transition de couleur */
+}
 
